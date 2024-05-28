@@ -6,6 +6,11 @@ defineProps({
 });
 
 const count = ref(0);
+const discount = ref(0);
+const totalCount = ref(count + discount);
+const limitCount = totalCount > 0 ? discount : count;
+const countNumber = ref(limitCount);
+// console.log(count);
 </script>
 
 <template>
@@ -13,8 +18,12 @@ const count = ref(0);
 
   <div class="card">
     {{ count + discount }}
-    <button type="button" @click="count++">count is {{ count }}</button>
-
+    <button type="button" @click="count++">count is {{ limitCount }}</button>
+    <button type="button" @click="discount--">
+      discount is {{ discount }}
+    </button>
+    {{ console.log(count) }}
+    {{ console.log(discount) }}
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
