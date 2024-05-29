@@ -1,6 +1,16 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
-const title = "Vite + Vue";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      awesome: true,
+      title: "Vite + Vue",
+    };
+  },
+};
 </script>
 
 <template>
@@ -12,7 +22,10 @@ const title = "Vite + Vue";
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld :msg="title" />
+
+  <button type="button" @click="awesome = !awesome">작은 계산기 토글</button>
+  <div v-if="awesome"></div>
+  <main v-else><HelloWorld :msg="title" /></main>
 </template>
 
 <style scoped>
