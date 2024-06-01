@@ -1,13 +1,15 @@
 <script setup>
 import HelloWorld from "./components/HelloWorld.vue";
+import ListRendering from "./components/ListRendering.vue";
 </script>
 
 <script>
 export default {
   data() {
     return {
-      awesome: true,
-      title: "Vite + Vue",
+      openCalculator: true,
+      title: { HelloWorld: "Vite + Vue", ListRendering: "Vue Study" },
+      items: [{ message: "뷰 공부하기" }, { message: "투두리스트 만들기" }],
     };
   },
 };
@@ -22,10 +24,15 @@ export default {
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-
-  <button type="button" @click="awesome = !awesome">작은 계산기 토글</button>
-  <div v-if="awesome"></div>
-  <main v-else><HelloWorld :msg="title" /></main>
+  <ListRendering />
+  <br />
+  <button type="button" @click="openCalculator = !openCalculator">
+    작은 계산기 토글
+  </button>
+  <div v-if="openCalculator"></div>
+  <main v-else>
+    <HelloWorld :msg="title.HelloWorld" />
+  </main>
 </template>
 
 <style scoped>
