@@ -12,7 +12,6 @@ const items = [
     </h1>
     <ul v-for="item in items" :key="item.id">
       <li>
-        {{ console.log(item.id) }}
         {{ item.id + ". " + item.content }}
       </li>
     </ul>
